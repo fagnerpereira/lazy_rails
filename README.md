@@ -1,20 +1,19 @@
 # LazyRails
 
-TODO: Delete this and the text below, and describe your gem
+I love and Im proud of being a Ruby on Rails developer, but there are 2 specific things I hate in Rails:
+1. The verbose command I need to memorizer to create new rails apps (I simply ALWAYS FORGET). Example: `rails new my_app --database=sqlite3 --javascript=importmap --css=tailwind`
+2. The amount of tools installed by default, even if I don't need them. Example: ActiveStorage, ActiveText, ActionMailer, ActionMailbox
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/lazy_rails`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem has 2 puroses:
+1. To make it easier to get started creating new projects following an interactive guide (like when you create a vite project)
+2. To make it easier to add and install new tools on the fly (its just annoying every time I need for example devise, to open their doc and copy and paste install commands)
 
 ## Installation
-
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
-
-Install the gem and add to the application's Gemfile by executing:
-
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+    $ bundle add lazy_rails
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+    $ gem install lazy_rails
 
 ## Usage
 
