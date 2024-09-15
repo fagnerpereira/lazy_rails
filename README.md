@@ -25,7 +25,7 @@ Create a new Rails project:
 lazy_rails new
 ```
 
-(lazy_rails_new_example2.gif)
+![LazyRails Demo](lazy_rails_new_example2.gif)
 
 ## Development
 
