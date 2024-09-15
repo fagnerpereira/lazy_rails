@@ -33,7 +33,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "thor"
   spec.add_dependency "tty-prompt"
-  spec.add_dependency "rails"
+  spec.add_dependency "railties"
   spec.executables << "lazy_rails"
 
   # For more information and examples about making a new gem, check out our
