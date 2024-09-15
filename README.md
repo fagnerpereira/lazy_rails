@@ -52,3 +52,11 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Some notes
+This gem is my first gem in my whole career as Ruby/Rails developer, so sorry if I make some mistakes. I hope you like it!
+
+Also I would like to express my thanks to make this gem possible to:
+- DHH and whole Rails community WORKERS. (https://github.com/rails/rails)
+- Piotr Murach @piotrmurach, who created tty-prompt gem. (https://github.com/piotrmurach/tty-prompt)
+- Chris Oliver @excid3, for being a great reference and inspiration as a Professor and Worker. (https://github.com/excid3)
