@@ -25,7 +25,7 @@ Create a new Rails project:
 lazy_rails new
 ```
 
-Follow the interactive prompts to customize your project.
+(lazy_rails_new_example2.gif)
 
 ## Development
 
@@ -38,6 +38,7 @@ Local installation: `bundle exec rake install`
 
 ## Roadmap
 
+- [ ] Selection of Rails version (at least last 3)
 - [ ] View template selection (ERB, Haml, Slim)
 - [ ] Test tool selection (RSpec, Minitest, Test::Unit)
 - [ ] Linter selection (RuboCop, Standard)
