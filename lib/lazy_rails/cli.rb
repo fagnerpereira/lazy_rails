@@ -1,59 +1,20 @@
 require "thor"
 require "tty-prompt"
 
-# TODO: add a way to select rails version
+module CommandGenerators
+  autoload :Options, "lazy_rails/command_generators/options"
+end
+
 module LazyRails
   class CLI < Thor
     RAILS_NEW_COMMAND = ["rails new"]
-    APP_TYPES = {
-      "api" => "--api"
-    }
-    DB_OPTIONS = {
-      "mysql" => "--database=mysql",
-      "postgresql" => "--database=postgresql",
-      "trilogy" => "--database=trilogy"
-    }
-    JS_OPTIONS = {
-      "esbuild" => "--javascript=esbuild",
-      "bun" => "--javascript=bun",
-      "rollup" => "--javascript=rollup",
-      "webpack" => "--javascript=webpack"
-    }
-    CSS_OPTIONS = {
-      "tailwind" => "--css=tailwind",
-      "bootstrap" => "--css=bootstrap",
-      "bulma" => "--css=bulma",
-      "postcss" => "--css=postcss",
-      "sass" => "--css=sass"
-    }
-    SKIP_OPTIONS = {
-      "jbuilder" => "--skip-jbuilder",
-      "minitest" => "--skip-test",
-      "rubocop" => "--skip-rubocop",
-      "brakeman" => "--skip-brakeman"
-    }
 
     desc "new", "Start new rails project"
     def new
-      prompt = TTY::Prompt.new
-
       puts "Welcome to the Rails Project Setup Wizard!"
 
-      # Project name
-      project_name = prompt.ask("What is the name of your project?") do |q|
-        q.default "rails-app-#{Time.now.strftime("%Y%m%d%H%M%S")}"
-        q.required true
-        q.validate(/\A[\w-]+\z/)
-        q.messages[:valid?] = "Project name can only contain letters, numbers, underscores, and dashes"
-      end
-
-      # Database selection
-      db_option = prompt.select("Choose your database:", show_help: :always) do |menu|
-        menu.choice "SQLite(default)", "sqlite3"
-        menu.choice "MySQL", "mysql"
-        menu.choice "Trilogy", "trilogy"
-        menu.choice "PostgreSQL", "postgresql"
-      end
+      RAILS_NEW_COMMAND << PromptGenerators::AppName.new(prompt).call
+      RAILS_NEW_COMMAND << DB_OPTIONS[PromptGenerators::DbName.new(prompt).call]
 
       # Project type
       project_type = prompt.select("Choose your project type:", %w[web api], show_help: :always)
@@ -74,8 +35,6 @@ module LazyRails
         menu.choice "brakeman"
       end
 
-      RAILS_NEW_COMMAND << project_name
-      RAILS_NEW_COMMAND << DB_OPTIONS[db_option] if db_option
       RAILS_NEW_COMMAND << APP_TYPES[project_type] if project_type
       RAILS_NEW_COMMAND << JS_OPTIONS[js_option] if js_option
       RAILS_NEW_COMMAND << CSS_OPTIONS[css_option] if css_option
@@ -101,6 +60,12 @@ module LazyRails
     desc "version", "Display LazyRails version"
     def version
       puts "LazyRails version #{LazyRails::VERSION}"
+    end
+
+    private
+
+    def prompt
+      @_prompt ||= TTY::Prompt.new
     end
   end
 end

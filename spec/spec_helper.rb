@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require "lazy_rails"
+require "pry"
+require "fake_prompt"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
