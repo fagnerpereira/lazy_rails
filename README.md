@@ -38,23 +38,24 @@ Local installation: `bundle exec rake install`
 
 ## Roadmap
 
+- [ ] test compatibility with other ruby/rails versions
 - [ ] Selection of Rails version (at least last 3)
 - [ ] View template selection (ERB, Haml, Slim)
 - [ ] Test tool selection (RSpec, Minitest, Test::Unit)
 - [ ] Linter selection (RuboCop, Standard)
-- [ ] CSS processor selection (Tailwind, Bootstrap, Bulma, PostCSS, Sass)
-- [ ] JavaScript processor selection (Importmap, Bun, Webpack, esbuild, Rollup)
-- [ ] Database selection (SQLite3, MySQL, PostgreSQL)
-- [ ] App type selection (API, Web)
 - [ ] Basic setup customization (Action Cable, Active Job, Action Mailer, Action Mailbox)
 - [ ] On-the-fly popular gem installation (Devise, Sidekiq, Solid Queue)
 - [ ] Improve documentation
-- [ ] Increase test coverage
 - [ ] Enhance error handling and user feedback
 
 ✅ Completed:
 - [x] Basic CLI structure
 - [x] 'new' command for project generation
+- [x] CSS processor selection (Tailwind, Bootstrap, Bulma, PostCSS, Sass)
+- [x] JavaScript processor selection (Importmap, Bun, Webpack, esbuild, Rollup)
+- [x] Database selection (SQLite3, MySQL, PostgreSQL)
+- [x] Increase test coverage
+- [x] App type selection (API, Web)
 
 ## Contributing
 
