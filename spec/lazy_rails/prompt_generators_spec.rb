@@ -1,6 +1,6 @@
 module LazyRails
   module PromptGenerators
-    describe AskAppName do
+    RSpec.describe AskAppName do
       let(:prompt) { FakePrompt.new }
 
       describe "#call" do
@@ -11,7 +11,7 @@ module LazyRails
       end
     end
 
-    describe SelectAppType do
+    RSpec.describe SelectAppType do
       let(:prompt) { FakePrompt.new }
 
       describe "#call" do
@@ -24,7 +24,8 @@ module LazyRails
         end
       end
     end
-    describe SelectCss do
+
+    RSpec.describe SelectCss do
       let(:prompt) { FakePrompt.new }
 
       describe "#call" do
@@ -37,7 +38,8 @@ module LazyRails
         end
       end
     end
-    describe SelectDb do
+
+    RSpec.describe SelectDb do
       let(:prompt) { FakePrompt.new }
 
       describe "#call" do
@@ -50,7 +52,8 @@ module LazyRails
         end
       end
     end
-    describe SelectJs do
+
+    RSpec.describe SelectJs do
       let(:prompt) { FakePrompt.new }
 
       describe "#call" do
@@ -63,7 +66,8 @@ module LazyRails
         end
       end
     end
-    describe SelectTools do
+
+    RSpec.describe SelectTools do
       let(:prompt) { FakePrompt.new }
 
       describe "#call" do

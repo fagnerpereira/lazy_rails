@@ -2,6 +2,7 @@
 
 require_relative "lazy_rails/version"
 require_relative "lazy_rails/prompt_generators"
+require_relative "lazy_rails/cli"
 # require_relative "lazy_rails/commands/new"
 # require_relative "lazy_rails/commands/new_command/generator"
 
@@ -39,15 +40,21 @@ module LazyRails
     end
 
     def build
-      yield self
-      build_command
+      if block_given?
+        yield self
+      end
+      command = base_command + build_options
+      command.compact.join(" ").strip
     end
 
-    def build_command
-      base_command = ["rails new #{app_name}"]
-      options.map do |option|
-        base_command << NewCommand::OPTIONS[option]
-      end.join(" ")
+    def build_options
+      options.flatten.map do |option|
+        NewCommand::OPTIONS[option]
+      end
+    end
+
+    def base_command
+      ["rails new #{app_name}"]
     end
   end
 end
