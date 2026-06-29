@@ -12,7 +12,7 @@ module LazyRails
       def new
         puts "Welcome to the Rails Project Setup Wizard!"
 
-        _app_name = PromptGenerators::AskAppName.new(prompt).call
+        app_name = PromptGenerators::AskAppName.new(prompt).call
         _selected_db = PromptGenerators::SelectDb.new(prompt).call
         selected_app_type = PromptGenerators::SelectAppType.new(prompt).call
 
@@ -32,7 +32,7 @@ module LazyRails
         # Ask for confirmation
         if prompt.yes?("Do you want to run this command now?")
           system(rails_new_command)
-          puts "Rails project '#{_app_name}' has been created!"
+          puts "Rails project '#{app_name}' has been created!"
         else
           puts "Command not executed. You can run it manually when you're ready."
         end
