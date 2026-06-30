@@ -32,10 +32,10 @@ Cases 2 and 3 are both valid, but the linter cannot distinguish them from a mist
 
 ```ruby
 # Before — linter error, ambiguous intent
-app_name = PromptGenerators::AskAppName.new(prompt).call
+selected_db = PromptGenerators::SelectDb.new(prompt).call
 
 # After — intentional, documented
-_app_name = PromptGenerators::AskAppName.new(prompt).call
+_selected_db = PromptGenerators::SelectDb.new(prompt).call
 ```
 
 The `_` prefix is a convention understood by every Ruby programmer, the interpreter itself (block parameter warnings), pattern matching, and all major linters. It reads as: "I know I am not using this return value yet. I am not ignoring the linter by accident."
@@ -70,7 +70,7 @@ Always check whether the constant you are calling `.new` on is a `class` or a `m
 1. Prefix all currently-unused prompt variables with `_`.
 2. Fix `PromptGenerators::AppName` → `PromptGenerators::AskAppName`.
 3. Fix `PromptGenerators.new(prompt)` → `PromptGenerators::SelectDb.new(prompt)`.
-4. Fix the undefined `project_name` reference to use the captured `_app_name`.
+4. Fix the undefined `project_name` reference to use the captured `app_name`.
 
 ## Consequences
 
